@@ -22,6 +22,7 @@ block annotation-area
 
     div.card-content
       div.content(v-if="docs[pageNumber] && annotations[pageNumber]")
+        img.question-image(v-bind:src="'http://114.212.82.134:8001/' + JSON.parse(docs[pageNumber].meta).img_id + '.jpg'")
         annotator(
           v-bind:labels="labels"
           v-bind:entity-positions="annotations[pageNumber]"
@@ -36,6 +37,13 @@ block annotation-area
 <style scoped>
 .card-header-title {
   padding: 1.5rem;
+}
+.question-image {
+  max-height: 15rem;
+  max-width: 100%;
+}
+.question-image:hover {
+  transform: scale(2);
 }
 </style>
 
